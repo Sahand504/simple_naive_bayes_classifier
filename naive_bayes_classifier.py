@@ -30,6 +30,7 @@ def get_files_lines(dir_name):
     return files_lines
 
 
+stop_words = set(nltk.corpus.stopwords.words('english'))
 def tokenize(files_lines):
     filtered_tokens = []
     for lines in files_lines:
@@ -45,7 +46,6 @@ def tokenize(files_lines):
             word_tokens = tokenizer.tokenize(line)
 
             # Filter Stopwords and digits
-            stop_words = set(nltk.corpus.stopwords.words('english'))
             for w in word_tokens:
                 if w not in stop_words:
                     filtered_tokens.append(w)
